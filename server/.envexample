@@ -1,0 +1,5 @@
+change user and password to actual user and password or change it to "postgresql://postgres@localhost/database"
+
+DATABASE_URL="postgresql://user:password@localhost/database"
+DATABASE_SSL="false"
+
