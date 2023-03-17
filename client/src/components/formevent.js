@@ -87,7 +87,7 @@ const FormEvent = (props) => {
                    }
                   }
             />
-            <button type="submit" >Add Event</button>
+            <button type="submit" className="button-67">Add Event</button>
         </form>
     )
 
