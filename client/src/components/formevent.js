@@ -50,7 +50,7 @@ const FormEvent = (props) => {
             <input
                 type="text"
                 id="add-event-name"
-                placeholder="The Name of your Event"
+                placeholder="Event Name"
                 required
                 value={event.name} //state
                 onChange={(e)=>{
@@ -61,22 +61,36 @@ const FormEvent = (props) => {
                    }
                   }
             />
-            {/* <label>Place</label>
+            <label>Description</label>
             <input
                 type="text"
-                id="add-event-location"
-                placeholder="The Location of your Event"
+                id="add-event-description"
+                placeholder="Event Description"
                 required
-                value={event.location} //state
-                onChange={handleLocationChange}
-            /> */}
-            {/* <label>Date</label>
+                value={event.description} //state
+                onChange={(e)=>{
+                    dispatchEvent({
+                      type: "change_description", 
+                      newName: e.target.value
+                    })
+                   }
+                  }
+            />
+             <label>Date</label>
             <input
                 type="date"
                 id="add-event-date"
+                placeholder="Date"
+                required
                 value={event.eventtime} //state
-                onChange={handleDateChange}
-            /> */}
+                onChange={(e)=>{
+                    dispatchEvent({
+                      type: "change_eventtime", 
+                      newName: e.target.value
+                    })
+                   }
+                  }
+            />
             <button type="submit" >Add Event</button>
         </form>
     )
