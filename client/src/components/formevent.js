@@ -3,9 +3,6 @@ import { useReducer } from "react";
 
 const FormEvent = (props) => {
 
-    //This is my state with the initial values empty
-    //This is my data
-    //{title: 'Women', location: 'Overland'. eventtime: "2023-03-29T07:00:00.000Z"}
 
     function reducer(event, action) {
         //console.log(action, "monitoring if change is happening in console");
@@ -18,6 +15,9 @@ const FormEvent = (props) => {
           }
           case "change_eventtime" : {
             return {...event, eventtime: action.newDate}
+          }
+          case "change_reattend" : {
+            return {...event, eventtime: action.reattend}
           }
           
         }
@@ -38,6 +38,8 @@ const FormEvent = (props) => {
         //setEvent(event);
         //console.log(event);
         props.postRequest(event);
+        //this is clearing the form onSubmit
+        e.target.reset();
     }
 
     return (
@@ -83,6 +85,20 @@ const FormEvent = (props) => {
                     dispatchEvent({
                       type: "change_eventtime", 
                       newDate: e.target.value
+                    })
+                   }
+                  }
+                  
+            />
+            <label>Reattend?</label>
+            <input
+                type="radio"
+                id="add-event-description"
+                value={event.reattend} //state
+                onChange={(e)=>{
+                    dispatchEvent({
+                      type: "change_reattend", 
+                      newReattend: true
                     })
                    }
                   }

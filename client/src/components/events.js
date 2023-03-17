@@ -40,7 +40,7 @@ function Events() {
     <CardGroup className="eventCard">
     
             {events.map(event =>
-            <EventCard  key={event.id} title={event.name} location={event.description} time={event.eventtime}/>
+            <EventCard  key={event.id} title={event.name} location={event.description} time={event.eventtime} reattend={event.reattend}/>
             )}
     
     </CardGroup>

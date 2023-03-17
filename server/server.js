@@ -43,9 +43,10 @@ app.post("/api/events", async (req, res) => {
         const newEvent = {
             name: req.body.name,
             description: req.body.description,
-            eventtime: req.body.eventtime
+            eventtime: req.body.eventtime,
+            reattend: req.body.reattend
         }
-        const result = await db.query('INSERT INTO events(name, description, eventtime) VALUES ($1, $2, $3) RETURNING *', [newEvent.name, newEvent.description, newEvent.eventtime]);
+        const result = await db.query('INSERT INTO events(name, description, eventtime, reattend) VALUES ($1, $2, $3, $4) RETURNING *', [newEvent.name, newEvent.description, newEvent.eventtime, newEvent.reattend]);
         let response = result.rows[0];
         console.log(response);
         res.json(response)
