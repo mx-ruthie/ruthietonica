@@ -1,4 +1,5 @@
 .App {
+  font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
   display: grid;
   align-items: center;
   justify-content: center;
@@ -18,9 +19,15 @@ h1 {
   margin-bottom: 50px !important;
 }
 
+.col {
+  flex: 1;
+  padding: 16px;
+}
 .row{
   padding: 5px;
   margin: 5px;
+  display: flex;
+  min-height: 50px;
 }
 
 /* CSS */
