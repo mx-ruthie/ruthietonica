@@ -13,6 +13,13 @@ const FormEvent = (props) => {
           case "change_name" : {
             return {...event, name: action.newName}
           }
+          case "change_description" : {
+            return {...event, description: action.newDescription}
+          }
+          case "change_eventtime" : {
+            return {...event, eventtime: action.newDate}
+          }
+          
         }
       }
       const [event, dispatchEvent] = useReducer(reducer, { name: "", location: "", eventtime: "" })
@@ -40,7 +47,7 @@ const FormEvent = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         //setEvent(event);
-        console.log(event);
+        //console.log(event);
         props.postRequest(event);
     }
 
@@ -71,7 +78,7 @@ const FormEvent = (props) => {
                 onChange={(e)=>{
                     dispatchEvent({
                       type: "change_description", 
-                      newName: e.target.value
+                      newDescription: e.target.value
                     })
                    }
                   }
@@ -86,7 +93,7 @@ const FormEvent = (props) => {
                 onChange={(e)=>{
                     dispatchEvent({
                       type: "change_eventtime", 
-                      newName: e.target.value
+                      newDate: e.target.value
                     })
                    }
                   }
