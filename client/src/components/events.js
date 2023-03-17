@@ -36,9 +36,9 @@ function Events() {
     }
   return (
     <>
-    <CardGroup className="Events">
+    <CardGroup className="eventCard">
             {events.map(event =>
-            <EventCard key={event.id} title={event.name} location={event.description} time={event.eventtime}/>
+            <EventCard  key={event.id} title={event.name} location={event.description} time={event.eventtime}/>
             )}
     </CardGroup>
     <FormEvent  postRequest={postRequest}/>    </>

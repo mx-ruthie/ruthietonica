@@ -41,7 +41,7 @@ const FormEvent = (props) => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
             <label>Name</label>
             <input
                 type="text"
