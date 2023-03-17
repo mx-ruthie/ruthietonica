@@ -37,9 +37,9 @@ app.get('/api/events', async (req, res) =>{
 })
 
 app.post("/api/events", async (req, res) => {
-    //TO - DO - At the end => save this event to the db
-    //INSERT INTO events (title, location, eventtime) VALUES ('Women in Tech Techtonica Panel', 'Overland Park Convention Center', '2023-04-21')
     try {
+
+        //had a few lines commented out here and took a while to track down why the form data wasn't getting to the db lol
         const newEvent = {
             name: req.body.name,
             description: req.body.description,
