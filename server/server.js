@@ -34,20 +34,28 @@ app.get('/api/events', async (req, res) =>{
         return res.status(400).json({error});
 
     }
-
-    //hardcode the events response for testing reasons. This call has one more event that the real DB 
-    // const events = [
-
-    //     {id: 1, title: 'Women in Tech Techtonica Panel', location: 'Overland Park Convention Center'},
-    //     {id: 2, title: 'Japanese Cultural Education', location: 'Seattle Convention Center'},
-    //     {id: 3, title: "Haven 90's Party Night Club", location: 'Hilton Hotel Kansas City'},
-    //     {id: 4, title: 'Comedy Night at the Station', location: 'SF Hilton Hotel'},
-    //     {id: 5, title: 'A Decadent Arts Experience', location: 'West Ridge Mall'},
-    //     {id: 6, title: 'Techtonica Classroom Course', location: 'Techtonica HQ'}
-    //   ];
-    // res.json(events);
 })
 
+app.post("/api/events", async (req, res) => {
+    try {
+
+        //had a few lines commented out here and took a while to track down why the form data wasn't getting to the db lol
+        const newEvent = {
+            name: req.body.name,
+            description: req.body.description,
+            eventtime: req.body.eventtime,
+            reattend: req.body.reattend
+        }
+        const result = await db.query('INSERT INTO events(name, description, eventtime, reattend) VALUES ($1, $2, $3, $4) RETURNING *', [newEvent.name, newEvent.description, newEvent.eventtime, newEvent.reattend]);
+        let response = result.rows[0];
+        console.log(response);
+        res.json(response)
+
+    } catch (e){
+        console.log(error);
+        return res.status(400).json({error});
+    }
+})
 
 
 app.listen(PORT, () => console.log(`Hola! Server running on Port http://localhost:${PORT}`));

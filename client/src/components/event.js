@@ -1,9 +1,14 @@
 import Card from 'react-bootstrap/Card';
 import Moment from "react-moment";
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 const EventCard = (props) =>{
 
     return(
+    <div className='row'>
+      <div className="col" size='md'>
     <Card style={{ width: '18rem' }}>
     <Card.Body>
       <Card.Title>{props.title}</Card.Title>
@@ -13,6 +18,8 @@ const EventCard = (props) =>{
       </Card.Text>
     </Card.Body>
   </Card>
+  </div>
+  </div>
   )}
 
 export default EventCard;
